@@ -12,7 +12,7 @@ public class Q5
         String sRet = "";
         for (int i = nbEtoiles; i > 0; i--)
         {
-            sRet += "*".repeat(i);
+            sRet += "X".repeat(i);
             sRet += "\n";
         }
         
