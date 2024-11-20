@@ -17,7 +17,7 @@ jobs:
         run: |
           echo "Nom et Prénom : Ashanti NJANJA" > Q4_archive_date.txt
           echo "Date et heure d'exécution : $(date '+%d-%m-%Y')" >> Q4_archive_date.txt
-          echo Q3.java >> Q4_archive_date.txt
+          cat Q4.java >> Q4_archive_date.txt
       
       # Configurer Git
       - name: Config Git
