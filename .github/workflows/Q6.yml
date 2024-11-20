@@ -1,0 +1,42 @@
+name: Q6 Workflow
+
+on: [push]
+permissions:
+  contents: write
+
+jobs:
+  question-6ds:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Créer le fichier Q6_archive_date.txt
+      # On va creer une copie du précedént Q6_archive_date.txt en le renommant Q6_archive_dateBis.txt 
+      - name: Creer Q6_archive_date.txt
+        run: |
+          mv Q6_archive_date.txt Q6_archive_dateBis.txt 
+          echo "Nom et Prénom : Ashanti NJANJA" > Q6_archive_date.txt
+          echo "Date et heure d'exécution : $(date '+%Y-%m-%d à %H:%M:%S')" >> Q6_archive_date.txt
+          wc -l -m Q6.java >> Q6_archive_date.txt
+          
+      # Créer le fichier Q6_differences.txt
+      - name: Creer Q6_differences.txt
+        run: |
+          diff Q6_archive_date.txt Q6_archive_dateBis.txt > Q6_differences.txt
+          
+      # Configurer Git
+      - name: Config Git
+        run: |
+          git config --global user.name ShantiLKael
+          git config --global user.email shantil_ytb@outlook.com
+
+      # Ajouter et pousser le nouveau fichier
+      - name: Commit et push
+        run: |
+          git add Q6_archive_date.txt
+          git commit -m "Add Q6_archive_date.txt"
+          git add Q6_differences.txt
+          git commit -m "Add Q6_differences.txt"
+          git push
