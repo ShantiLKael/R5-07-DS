@@ -1,0 +1,34 @@
+name: Q2 Workflow
+
+on: [push]
+permissions:
+  contents: write
+
+jobs:
+  question-2ds:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Créer le fichier Q2_archive_README.md
+      - name: Creer Q2_archive_README.md
+        run: |
+          echo "Nom et Prénom : Ashanti NJANJA" > Q2_archive_README.md
+          echo "Date et heure d'exécution : $(date '+%Y-%m-%d %H:%M:%S')" >> Q2_archive_README.md
+          echo -e "\n---\n" >> Q2_archive_README.md
+          cat README.md >> Q2_archive_README.md
+
+      # Configurer Git
+      - name: Config Git
+        run: |
+          git config --global user.name ShantiLKael
+          git config --global user.email shantil_ytb@outlook.com
+
+      # Ajouter et pousser le nouveau fichier
+      - name: Commit et push
+        run: |
+          git add Q2_archive_README.md
+          git commit -m "Add Q2_archive_README.md with execution metadata"
+          git push
