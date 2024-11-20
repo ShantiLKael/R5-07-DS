@@ -16,7 +16,7 @@ jobs:
       - name: Creer Q3_archive_java.txt
         run: |
           echo "Nom et Prénom : Ashanti NJANJA" > Q3_archive_java.txt
-          echo Q3.java >> Q3_archive_java.txt
+          cat Q3.java >> Q3_archive_java.txt
       
       # Configurer Git
       - name: Config Git
