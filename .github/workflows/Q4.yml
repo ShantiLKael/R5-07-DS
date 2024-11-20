@@ -1,0 +1,33 @@
+name: Q4 Workflow
+
+on: [push]
+permissions:
+  contents: write
+
+jobs:
+  question-4ds:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Créer le fichier Q4_archive_date.txt
+      - name: Creer Q4_archive_date.txt
+        run: |
+          echo "Nom et Prénom : Ashanti NJANJA" > Q4_archive_date.txt
+          echo "Date et heure d'exécution : $(date '+%d-%m-%Y')" >> Q4_archive_date.txt
+          echo Q3.java >> Q4_archive_date.txt
+      
+      # Configurer Git
+      - name: Config Git
+        run: |
+          git config --global user.name ShantiLKael
+          git config --global user.email shantil_ytb@outlook.com
+
+      # Ajouter et pousser le nouveau fichier
+      - name: Commit et push
+        run: |
+          git add Q4_archive_date.txt
+          git commit -m "Add Q4_archive_date.txt"
+          git push
