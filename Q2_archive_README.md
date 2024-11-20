@@ -1,5 +1,5 @@
 Nom et Prénom : Ashanti NJANJA
-Date et heure d'exécution : 2024-11-20 13:56:57
+Date et heure d'exécution : 2024-11-20 14:02:08
 
 ---
 
@@ -7,3 +7,4 @@ Date et heure d'exécution : 2024-11-20 13:56:57
 Je suis le readme.md
 
 Modification Q1.
+Modification Q6
