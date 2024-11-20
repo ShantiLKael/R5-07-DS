@@ -5,7 +5,7 @@ permissions:
   contents: write
 
 jobs:
-  question-2ds:
+  question-3ds:
     runs-on: ubuntu-latest
 
     steps:
